@@ -123,6 +123,16 @@
         aside .credit-btn { background: #E19D61; border-color: #E19D61; color: #463C38; }
         aside .credit-btn:hover,
         aside .credit-btn:focus-visible { background: #E7B07F; border-color: #E7B07F; color: #463C38; }
+    
+
+/* ★狭い画面での横あふれ対策（2026-10-06）
+   body だけ overflow-x: hidden にすると html 側は visible のままなので、
+   iOS Safari ではページが横スクロールでき、右側に地色の帯（余白）が出る。
+   html にも掛ける必要があるが、hidden はスクロールコンテナを作るため
+   position: sticky のヘッダーが効かなくなる。clip は作らないので安全。 */
+@supports (overflow: clip) {
+  html, body { overflow-x: clip; }
+}
     </style>
 </head>
 <body class="font-sans antialiased tracking-wide leading-relaxed">
