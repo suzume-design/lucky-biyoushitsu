@@ -117,6 +117,12 @@
             background: rgb(var(--c-accent2));
             border-radius: 4px;
         }
+    
+/* 制作クレジット帯のボタン：サイト内のボタン（--c-cta）と同系だが別色にして、
+   わざと目立たせる。Tailwind のユーティリティと競合しないよう aside 付きで書く。 */
+        aside .credit-btn { background: #E19D61; border-color: #E19D61; color: #463C38; }
+        aside .credit-btn:hover,
+        aside .credit-btn:focus-visible { background: #E7B07F; border-color: #E7B07F; color: #463C38; }
     </style>
 </head>
 <body class="font-sans antialiased tracking-wide leading-relaxed">
@@ -693,14 +699,15 @@
         </div>
     </footer>
 <!-- ============ 制作クレジット帯（スズメデザイン） ============ -->
-<aside class="bg-terras-bg-light border-t border-terras-accent2 py-8">
+<!-- 帯はフッター（白）から反転させて暗くしている。明るいままだと白フッターに埋もれる -->
+<aside class="bg-terras-text border-t-2 border-terras-cta py-8">
   <div class="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4">
     <p class="m-0">
-      <span class="block font-sans text-xs text-terras-text tracking-wide" style="opacity:.8">このサイトのデザインを制作しました</span>
-      <span class="block font-en-serif text-sm text-terras-text tracking-wide mt-1">サロン専門ホームページ制作　スズメデザイン</span>
+      <span class="block font-sans text-xs text-white tracking-wide" style="opacity:.85">このサイトのデザインを制作しました</span>
+      <span class="block font-en-serif text-sm text-white tracking-wide mt-1">サロン専門ホームページ制作　スズメデザイン</span>
     </p>
     <a href="https://suzumedesign.com/" target="_blank" rel="noopener noreferrer"
-       class="inline-flex items-center gap-2 border border-terras-accent2 text-terras-text px-6 py-2.5 rounded-full text-xs font-sans tracking-wide hover:bg-terras-cta hover:text-white hover:border-terras-cta transition-all">
+       class="credit-btn inline-flex items-center gap-2 border px-6 py-2.5 rounded-full text-xs font-sans tracking-wide transition-all">
       スズメデザインについて<span aria-hidden="true">&#8599;</span>
     </a>
   </div>
